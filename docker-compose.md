@@ -1,5 +1,7 @@
 # Docker Compose
 
+Container orchestration tool for building applications with microservices architecture using declarative .yaml configuration files
+
 ### Run containers
 
 <code>docker compose up</code> - build and run services defined in the local docker-compose.yml file</br>
