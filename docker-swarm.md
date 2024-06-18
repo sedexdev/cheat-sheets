@@ -4,9 +4,9 @@ Management solution for orchestrating distributed container workloads at scale
 
 # Ports
 
-<code>2377/tcp</code> - secure client-to-swarm communication
-<code>4789/udp</code> - control plane messaging
-<code>7946/tcp and udp</code> - for VXLAN overlay networks
+<code>2377/tcp</code> - secure client-to-swarm communication</br>
+<code>4789/udp</code> - control plane messaging</br>
+<code>7946/tcp and udp</code> - for VXLAN overlay networks</br>
 
 ### Initialize a node
 
