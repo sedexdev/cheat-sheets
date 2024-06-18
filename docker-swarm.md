@@ -35,8 +35,15 @@ Management solution for orchestrating distributed container workloads at scale
 
 <code>docker service create [image]</code> - create a service from [image]</br>
 <code>docker service create [image] [command]</code> - create a service from [image] and run [command]</br>
+<code>docker service create [OPTIONS] --name [name]</code> - create a service called [name]</br>
+<code>docker service create [OPTIONS] -p [host:container]</code> - create a service publishing ports [host:container] on all containers</br>
+<code>docker service create [OPTIONS] --network [name]</code> - create a service on a network called [name]</br>
+<code>docker service create [OPTIONS] --replicas [num]</code> - create a service with [num] replicas</br>
 <code>docker service ls</code> - list services</br>
 <code>docker service ps [hash]</code> - list service data for the service identified by [hash]</br>
 <code>docker service update [hash] --replicas [num]</code> - updates the swarm service identified by [hash] to have [num] replicas</br>
 <code>docker service rm [name | service_id]</code> - delete a service</br>
+
+### Networks
  
+<code>docker network create --drivers overlay [name]</code> - create a cross-node overlay network called [name]</br>
