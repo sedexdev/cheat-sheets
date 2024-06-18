@@ -29,6 +29,7 @@ Management solution for orchestrating distributed container workloads at scale
 ### Nodes
 
 <code>docker node ls</code> - list Swarm nodes</br>
+<code>docker node update --availability drain [manager]</code> - set a [manager] node to not accept worker tasks</br>
 
 ### Services
 
