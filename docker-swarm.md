@@ -11,7 +11,8 @@ Management solution for orchestrating distributed container workloads at scale
 ### Initialize a node
 
 <code>docker swarm init</code> - activate Docker Swarm on current node</br>
-<code>docker swarm init --advertise-addr [ip] --listen-addr [ip]</code> - set swarm node to advertise and listen on [ip]</br>
+<code>docker swarm init [OPTIONS] --advertise-addr [ip] --listen-addr [ip]</code> - set swarm node to advertise and listen on [ip]</br>
+<code>docker swarm init [OPTIONS] --autolock</code> - automatically lock the swarm</br>
 
 ### Swarm options
 
@@ -23,6 +24,7 @@ Management solution for orchestrating distributed container workloads at scale
 <code>docker swarm unlock</code> - unlock a swarm</br>
 <code>docker swarm unlock-key</code> - manage the swarm unlock key</br>
 <code>docker swarm update [OPTIONS]</code> - update swarm configuration</br>
+<code>docker swarm update --autolock=true</code> - automatically lock the swarm</br>
 
 ### Nodes
 
