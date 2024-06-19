@@ -22,3 +22,12 @@ Container orchestration tool for building applications with microservices archit
 
 <code>docker compose ps -a</code> - list all containers created by <code>docker compose up</code></br>
 <code>docker compose top</code> - list all processes running inside each service</br>
+
+### Run commands
+
+<code>docker compose exec [service] [command]</code> - execute the given [command] on the [service] container</br>
+
+#### Examples
+
+<code>docker-compose exec web python manage.py create_db</code></br>
+<code>docker-compose exec db psql --username=db_admin --dbname=flask_test</code></br>
