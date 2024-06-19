@@ -61,6 +61,11 @@ Management solution for orchestrating distributed container workloads at scale
 ### Updating a service
 
 <code>docker service update [hash] --replicas [num]</code> - updates the swarm service identified by [hash] to have [num] replicas</br>
+<code>docker service update [image] --update-parallelism [count] --update-delay [secs]</code> - push new [image] to [count] containers every [secs] seconds</br>
+
+### Scaling a service
+
+<code>docker service scale [name]=[num]</code> - updates the swarm service identified by [name] to have [num] replicas</br>
 
 ### Deleting a service
 
