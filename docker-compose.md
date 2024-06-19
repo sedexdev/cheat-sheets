@@ -29,5 +29,5 @@ Container orchestration tool for building applications with microservices archit
 
 #### Examples
 
-<code>docker-compose exec web python manage.py create_db</code></br>
-<code>docker-compose exec db psql --username=db_admin --dbname=flask_test</code></br>
+<code>docker compose exec web python manage.py create_db</code></br>
+<code>docker compose exec db psql --username=db_admin --dbname=flask_test</code></br>
