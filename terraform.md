@@ -7,11 +7,15 @@ Cloud provisioning toolchain for declarative infrastructure scripting using IaC
 <code>terraform</code> - Shows all available commands</br>
 <code>terraform init</code> - Initialise the Terraform provider</br>
 
-# Provisioning
+# Planning
 
 <code>terraform validate</code> - Validate the configuration is valid</br>
 <code>terraform plan</code> - Show the changes <apply> will make</br>
-<code>terraform plan -out=[path]</code> - Show the changes <apply> will make and save to file at [path]</br>
+<code>terraform plan -out=[path].plan</code> - Show the changes <apply> will make and save to file at [path].plan</br>
+<code>terraform show -no-color [path].plan > [path].txt</code> - Convert the file [path].plan to readable format</br>
+
+# Provisioning
+
 <code>terraform apply</code> - Apply the change to deploy resources</br>
 <code>terraform apply --auto-approve</code> - Apply the change to deploy resources and auto approve deployment</br>
 <code>terraform apply -target [resource.name]</code> - Apply the change to deploy target resource</br>
