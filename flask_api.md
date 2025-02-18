@@ -21,6 +21,7 @@ class Config:
     JWT_SECRET_KEY = os.environ.get("JWT_SECRET_KEY", "your-jwt-secret")
     JWT_ACCESS_TOKEN_EXPIRES = 3600  # 1 hour expiration
     RATE_LIMIT = "5 per minute"
+    API_KEY = os.environ.get("API_KEY", "your-secure-api-key")
 ```
 
 ---
@@ -40,13 +41,11 @@ app.config.from_object(Config)
 jwt = JWTManager(app)
 limiter = Limiter(get_remote_address, app=app, default_limits=[Config.RATE_LIMIT])
 
-# Only allow your IP to generate tokens
-ALLOWED_IP = "YOUR_STATIC_IP_HERE"
-
 @app.route("/login", methods=["POST"])
 @limiter.limit("2 per minute")  # Limit login attempts
 def login():
-    if request.remote_addr != ALLOWED_IP:
+    api_key = request.headers.get("X-API-KEY")
+    if api_key != Config.API_KEY:
         return jsonify({"msg": "Unauthorized"}), 403
     
     password = request.json.get("password")
@@ -69,19 +68,20 @@ def secure_endpoint():
 
 ## 3. Security Enhancements
 
-### Restrict API Access to Your IP
+### Require API Key for All Requests
 ```python
 from flask import abort
 
-def check_ip():
-    if request.remote_addr != ALLOWED_IP:
-        abort(403, "Unauthorized IP")
+def check_api_key():
+    api_key = request.headers.get("X-API-KEY")
+    if api_key != Config.API_KEY:
+        abort(403, "Unauthorized API Key")
 ```
 Apply it to routes:
 ```python
 @app.before_request
 def restrict_access():
-    check_ip()
+    check_api_key()
 ```
 
 ### Prevent Common Attacks
@@ -123,7 +123,7 @@ def forbidden(error):
 
 ## Conclusion
 This setup ensures that:
-- Only you can access the API (restricted by IP and authentication).
+- Only you can access the API (restricted by an API key and authentication).
 - JWT tokens protect sensitive endpoints.
 - Rate limiting prevents brute force attacks.
 - Common attack vectors are mitigated.
